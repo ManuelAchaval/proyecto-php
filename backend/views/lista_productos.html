@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>LC-Productos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php  forEach($listaProductos as $producto){?>
+                    <tr>
+                        <td><?php echo $producto['id']?></td>
+                        <td><?php echo $producto['nom_prod']?></td>
+                        <td><?php echo $producto['descr_prod']?></td>
+                        <td><?php echo $producto['precio_prod']?></td>
+                        <td><?php echo $producto['img_prod']?></td>
+                        <td><?php echo $producto['cat_prod']?></td>
+                        
+                    </tr>
+                    <?php } ?>
+                </tbody>
+                
+            </table>
+            <a href='views/productos.html?agregar'></a>
+        </div>
+        <footer>
+            <h4>Manuel Achaval </h4>
+        </footer>
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
+    </body>
+</html>

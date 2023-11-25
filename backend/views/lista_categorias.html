@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>LC-Categorias</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+
+            <h3>lista de categorias</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>algo</th>
+                        <th>algo</th>
+                        <th>algo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($categorias as $categoria) { ?>
+                    <tr>
+                        <td>holas</td>
+                    </tr>
+                    <tr>
+                        <td><?php echo $categoria[0]; ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo $categoria[1]; ?></td>
+                    </tr>
+                    <?php } ?>
+
+
+                </tbody>
+            </table>        
+
+            <footer>
+                <h4>Manuel Achaval </h4>
+            </footer>
+            <script
+                src="https://code.jquery.com/jquery-3.7.1.js"
+                integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 28 oct 2023, 16:07:38
+    Author     : Manuel
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+body{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #D1D3D4;
+}
+header{
+    width:100%;
+    background: #0A89A6;
+    padding:2% 8%;
+    border-radius: 15px;
+}
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+.cont_form{
+    /*margin: 15em auto;*/
+    position: absolute;
+    display: flex;
+    top:40%;
+    flex-direction: column;
+    align-items: center;
+}
+form{
+    display:flex;
+    flex-direction: column;
+    background: #E4E9F2;
+    padding: 10% 8%;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.43);
+}
+
+label{
+    margin:5%;
+}
+
+input{
+    margin: 5%;
+}
+
+.cont_boton{
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+}
+.btn_cancelar{
+    border-radius: 15px;
+    background:#BF414C;
+    border: solid 1px ;
+    width:80px;
+    margin:10px;
+}
+.btn_guardar{
+    border-radius:15px;
+    border: solid 1px;
+    background: #58B7D5;
+    width:80px;
+    margin:10px;
+}
+
+.yo{
+    margin: 45px;
+}

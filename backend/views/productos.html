@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="es">
+
+    <head>
+        <title>LC-Productos</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../assets/css/estilos.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../../home.html">Home</a></li>
+                    <li><a href="./productos.html">Productos</a></li>
+                    <li><a href="./categorias.html">Categorias</a></li>
+                </ul>
+
+            </nav>
+        </header>
+        <div class="cont_form">
+            <form method="POST" id="form_prod">
+                <label for="nom_prod">Nombre de producto</label>
+
+                <input id="nom_prod" type="text" name="nom_prod" class="input_text" placeholder="Nombre" >
+
+                <label for="desc_prod">Descripcion de producto</label>
+                <textarea id="desc_prod" name="descr_prod" placeholder="Descripcion" rows="10" cols="50" > </textarea>
+
+                <label for="precio_prod">Precio</label>
+                <input id="precio_prod" type="number" name="precio_prod" placeholder="Precio" >
+                    
+                
+                <!--<label for="id_prod">ID del producto</label>
+                <input id="id_prod" type="number" name="id_prod" class="id_prod" placeholder="id" >-->
+
+                <label for="img_prod">Imagen de producto</label>
+                <input id="img_prod" type="file" name="img_prod" class="img_prod" >
+
+                <label for="cat_prod">Categoria del producto</label>
+                <input id="cat_prod" type="text" name="cat_prod" placeholder="Categoria" >
+
+                <div class="cont_boton">
+
+                    <button type="submit" class="btn_guardar">Guardar</button>
+                    <button type="button" class="btn_cancelar">Cancelar </button> 
+
+                </div>
+            </form>
+            <h3 class="yo">Manuel Achaval</h3>
+        </div>
+        <footer>
+            <h4>Manuel Achaval </h4>
+        </footer>
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
+        <script src="../../assets/js/validaciones.js"></script>
+    </body>
+</html>
