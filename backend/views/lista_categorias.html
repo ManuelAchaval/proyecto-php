@@ -9,25 +9,21 @@
     <body>
         <div>
 
-            <h3>lista de categorias</h3>
+            <h3>Lista de categorias</h3>
             <table>
                 <thead>
                     <tr>
-                        <th>algo</th>
-                        <th>algo</th>
-                        <th>algo</th>
+                        <th>ID</th>
+                        <th>Nombre</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($categorias as $categoria) { ?>
+                    <?php foreach ($listaCategorias as $categorias) { ?>
                     <tr>
-                        <td>holas</td>
+                        <td><?php echo $categorias['id']; ?></td>
                     </tr>
                     <tr>
-                        <td><?php echo $categoria[0]; ?></td>
-                    </tr>
-                    <tr>
-                        <td><?php echo $categoria[1]; ?></td>
+                        <td><?php echo $categorias['nom-cate']; ?></td>
                     </tr>
                     <?php } ?>
 

@@ -15,4 +15,6 @@ if(isset($_POST['action'])&&$_POST['action']== 'guardar'){
     include 'views/productos.html';
     die();
 }
+
+$listaProductos = productos::product_select();
 include './views/lista_productos.html';

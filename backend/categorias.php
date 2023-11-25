@@ -10,4 +10,6 @@ if(isset($_POST['action'])&&$_POST['action']== 'guardar'){
     include 'views/categorias.html';
     die();
 }
+
+$listaCategorias= categorias::cat_select();
 include './views/lista_categorias.html';

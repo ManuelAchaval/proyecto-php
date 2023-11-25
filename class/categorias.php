@@ -1,10 +1,10 @@
 <?php /*@autor Manuel Achaval */
 
-$driver = "mysql";
-$dbName = "miproyecto";
-$host = "127.0.0.1";
-$dbuser = "root";
-$dbpass = "";
+// $driver = "mysql";
+// $dbName = "miproyecto";
+// $host = "127.0.0.1";
+// $dbuser = "root";
+// $dbpass = "";
 
 class categorias {
 
@@ -14,12 +14,12 @@ class categorias {
 
     function __construct($id = null) {
         if ($id != null) {
-            $db = new database($driver, $dbName, $host, $dbuser, $dbpass);
+            $db = new database("mysql",  "miproyecto", "127.0.0.1", "root", "");
             $response = $db->select("categorias", "id=?", array($id));
             
-            if(isset(response[0]['id'])){
-                $this->id = response[0]['id'];
-                $this->nombre = response[0]['nom-cate'];
+            if(isset($response[0]['id'])){
+                $this->id = $response[0]['id'];
+                $this->nombre = $response[0]['nom-cate'];
                 $this->exist=true;
             }
         }else{
@@ -42,13 +42,13 @@ class categorias {
     }
 
     public function eliminar() {
-        $db = new database($driver, $dbName, $host, $dbuser, $dbpass);
+        $db = new database("mysql",  "miproyecto", "127.0.0.1", "root", "");
         return $db->delete("categorias", "id = " . $this->id);
     }
 
 
     private function cat_insert() {
-        $db = new database($driver, $dbName, $host, $dbuser, $dbpass);
+        $db = new database("mysql",  "miproyecto", "127.0.0.1", "root", "");
         $response = $db->insert("categorias", "nom-cate=?", "id=?", array($this->nombre));
     
         if($response){
@@ -61,13 +61,13 @@ class categorias {
     }
     
     private function cat_updt() {
-        $db = new database($driver, $dbName, $host, $dbuser, $dbpass);
+        $db = new database("mysql",  "miproyecto", "127.0.0.1", "root", "");
         $response = $db->update("categorias", "nom-cate=?", "id=?", array($this->nombre));
     
     }
     
     static public function cat_select() {
-        $db = new database($driver, $dbName, $host, $dbuser, $dbpass);
+        $db = new database("mysql",  "miproyecto", "127.0.0.1", "root", "");
         return $db-> select("categorias");
     }
     /* static public function listar() {

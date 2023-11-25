@@ -1,10 +1,10 @@
 <?php /*@autor Manuel Achaval */
 
-$driver = "mysql";
-$dbName = "miproyecto";
-$host = "127.0.0.1";
-$dbuser = "root";
-$dbpass = "";
+// $driver = "mysql";
+// $dbName = "miproyecto";
+// $host = "127.0.0.1"
+// $dbuser = "root";
+// $dbpass = "";
 
 class productos {
 
@@ -17,7 +17,7 @@ class productos {
     private $exists = false;
 
     function __construct($id = null) {
-        $db = new database($driver, $dbName, $host, $dbuser, $dbpass);
+        $db = new database("mysql", "miproyecto", "127.0.0.1", "root", "");
         $response = $db->select("productos", "id=?", array($id));
 
         if (isset($response[0]['id'])) {
@@ -34,8 +34,7 @@ class productos {
         }
     }
 
-    public
-            function muestro_produ() {
+    public function muestro_produ() {
         echo '<pre>';
         print_r($this);
         echo '</pre>';
@@ -50,13 +49,13 @@ class productos {
     }
 
     public function eliminar() {
-        $db = new database($driver, $dbName, $host, $dbuser, $dbpass);
+        $db = new database("mysql", "miproyecto", "127.0.0.1", "root", "");
         return $db->delete("productos", "id = " . $this->id);
     }
 
 
     private function produ_insert() {
-        $db = new database($driver, $dbName, $host, $dbuser, $dbpass);
+        $db = new database("mysql", "miproyecto", "127.0.0.1", "root", "");
         $response = $db->insert("productos", "nombre-produ=?, desc-produ=?, precio-produ=?, cat-id=?, img-produ=?", "?,?,?,?", array($this->nombre, $this->descripcion, $this->precio, $this->categoria, $this->imagen));
     
         if($response){
@@ -69,8 +68,13 @@ class productos {
     }
     
     private function produ_updt() {
-        $db = new database($driver, $dbName, $host, $dbuser, $dbpass);
+        $db = new database("mysql", "miproyecto", "127.0.0.1", "root", "");
         $response = $db->update("productos", "nombre-produ=?, desc-produ=?, precio-produ=?, cat-id=?, img-produ=?", "id=?", array($this->nombre, $this->descripcion, $this->precio, $this->categoria, $this->imagen));
     
+    }
+
+    static public function product_select(){
+        $db = new database("mysql", "miproyecto", "127.0.0.1", "root", "");
+        return $db -> select("productos");
     }
 }
