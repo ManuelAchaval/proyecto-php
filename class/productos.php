@@ -56,7 +56,7 @@ class productos {
 
     private function produ_insert() {
         $db = new database("mysql", "miproyecto", "127.0.0.1", "root", "");
-        $response = $db->insert("productos", "nombre-produ=?, desc-produ=?, precio-produ=?, cat-id=?, img-produ=?", "?,?,?,?", array($this->nombre, $this->descripcion, $this->precio, $this->categoria, $this->imagen));
+        $response = $db->insert("productos", "nombre-produ=?, desc-produ=?, precio-produ=?, cat-id=?, img-produ=?", "?,?,?,?,?", array($this->nombre, $this->descripcion, $this->precio, $this->categoria, $this->imagen));
     
         if($response){
             $this->id=$response;

@@ -18,15 +18,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($listaCategorias as $categorias) { ?>
-                    <tr>
-                        <td><?php echo $categorias['id']; ?></td>
-                    </tr>
-                    <tr>
-                        <td><?php echo $categorias['nom-cate']; ?></td>
-                    </tr>
+                    <?php foreach ($listaCategorias as $categoria) { ?>
+                        <tr>
+                            <td><?php echo $categoria['id']; ?></td>
+                            <td><?php echo $categoria['nombre']; ?></td>
+                            <!-- ... otros datos si es necesario -->
+                        </tr>
                     <?php } ?>
-
 
                 </tbody>
             </table>        

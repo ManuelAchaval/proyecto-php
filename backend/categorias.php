@@ -2,7 +2,7 @@
 include '../class/autoload.php';
 
 if(isset($_POST['action'])&&$_POST['action']== 'guardar'){
-    $nuevaCategoria = new categorias();
+    $nuevaCategoria = new Categorias();
     $nuevaCategoria ->nombre=$_POST['nombre_cat'];
     $nuevaCategoria ->guardar();
     
@@ -11,5 +11,6 @@ if(isset($_POST['action'])&&$_POST['action']== 'guardar'){
     die();
 }
 
-$listaCategorias= categorias::cat_select();
+$listaCategorias= Categorias::cat_select();
+var_dump($listaCategorias);
 include './views/lista_categorias.html';

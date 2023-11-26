@@ -6,7 +6,7 @@
 // $dbuser = "root";
 // $dbpass = "";
 
-class categorias {
+class Categorias {
 
     protected $id;
     public $nombre;
