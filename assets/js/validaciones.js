@@ -1,10 +1,4 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/javascript.js to edit this template
- */
 
-
-console.log("hola pibe, ponete a laburar");
 
 $("#form_catg").submit(function (e) {
     e.preventDefault();
@@ -50,7 +44,7 @@ $("#form_prod").submit(function (e) {
         return false;
     }
 alert(`Formulario enviado. \nProducto "${(nombre)}" creada exitosamente`);
-this.reset;
+this.reset();
 return true;
 
 

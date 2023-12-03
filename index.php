@@ -1,3 +1,7 @@
 <?php
 
-include './home.html';
+include 'class/autoload.php';
+
+$productos = Productos::product_select();
+
+include 'home.html';

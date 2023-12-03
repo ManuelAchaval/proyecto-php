@@ -25,7 +25,23 @@
         <main>
             <h1>Bienvenidos a mi tienda</h1>
             <div>
-
+                <?php foreach($productos as $p){ ?>
+                    <div>
+                        <div>
+                            <img src="" alt="imagen_producto">
+                            <div>
+                                <?php
+                                echo '<b>'. $p['nombre_produ'].'</b><br>';
+                                echo $p['desc_produ']. '<br/>';
+                                echo '<b>Precio:</b> $' . $p['precio_produ']. '<br/>'; 
+                                echo '<b>Cateroria:</b>'.$p['nom_cate'].'<br/>'?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <?php 
+                    echo "hola mundo soy manuel"; 
+                    ?>
             </div>
         </main>
         <footer>

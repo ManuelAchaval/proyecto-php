@@ -4,9 +4,9 @@ class Autoload{
         $classArr=array();
         $from= __DIR__.DIRECTORY_SEPARATOR;
         
-        $classArr['database']= $from. "database.php";
-        $classArr['Categorias']= $from. "categorias.php";
-        $classArr['Productos']= $from. "productos.php";
+        $classArr['database']= $from . "base_de_datos.php";
+        $classArr['Categorias']= $from . "categorias.php";
+        $classArr['Productos']= $from . "productos.php";
         
         if(isset($classArr[$class])){
             if(file_exists($classArr[$class])){

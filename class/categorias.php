@@ -1,10 +1,12 @@
 <?php /*@autor Manuel Achaval */
 
-// $driver = "mysql";
-// $dbName = "miproyecto";
-// $host = "127.0.0.1";
-// $dbuser = "root";
-// $dbpass = "";
+ define("DRIVER", 'mysql');
+define("DB", 'miproyecto');
+define("HOST", '127.0.0.1');
+define("USER", 'root');
+define("PASS", '');
+define("TABLE", 'categorias');
+
 
 class Categorias {
 
@@ -14,8 +16,8 @@ class Categorias {
 
     function __construct($id = null) {
         if ($id != null) {
-            $db = new database("mysql",  "miproyecto", "127.0.0.1", "root", "");
-            $response = $db->select("categorias", "id=?", array($id));
+            $db = new base_de_datos(DRIVER, DB, HOST, USER,PASS);
+            $response = $db->select(TABLE, "id=?", array($id));
             
             if(isset($response[0]['id'])){
                 $this->id = $response[0]['id'];
@@ -42,14 +44,14 @@ class Categorias {
     }
 
     public function eliminar() {
-        $db = new database("mysql",  "miproyecto", "127.0.0.1", "root", "");
-        return $db->delete("categorias", "id = " . $this->id);
+        $db = new base_de_datos(DRIVER, DB, HOST, USER,PASS);
+        return $db->delete(TABLE, "id = " . $this->id);
     }
 
 
     private function cat_insert() {
-        $db = new database("mysql",  "miproyecto", "127.0.0.1", "root", "");
-        $response = $db->insert("categorias", "nom-cate=?", "id=?", array($this->nombre));
+        $db = new base_de_datos(DRIVER, DB, HOST, USER,PASS);
+        $response = $db->insert(TABLE, "nom-cate=?", "id=?", array($this->nombre));
     
         if($response){
             $this->id=$response;
@@ -61,17 +63,17 @@ class Categorias {
     }
     
     private function cat_updt() {
-        $db = new database("mysql",  "miproyecto", "127.0.0.1", "root", "");
-        $response = $db->update("categorias", "nom-cate=?", "id=?", array($this->nombre));
+        $db = new base_de_datos(DRIVER, DB, HOST, USER,PASS);
+        $response = $db->update(TABLE, "nom-cate=?", "id=?", array($this->nombre));
     
     }
     
     static public function cat_select() {
-        $db = new database("mysql",  "miproyecto", "127.0.0.1", "root", "");
-        return $db-> select("categorias");
+        $db = new base_de_datos(DRIVER, DB, HOST, USER,PASS);
+        return $db-> select(TABLE);
     }
     /* static public function listar() {
-      $db = new base_datos();
-      return $db->listar("categorias");
+        $db = new base_datos();
+        return $db->listar("categorias");
       } */
 }

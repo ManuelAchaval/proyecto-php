@@ -1,4 +1,25 @@
 <?php /*@autor Manuel Achaval */
+try {
+        $conector = new PDO("mysql:dbname=miproyecto;host=127.0.0.1", "root", "");
+        echo"Conexion exitosa";
+    } catch (Exception $ex) {
+        echo "Falló de conexion" . $ex->getMessage();
+    }
+    
+    $resource=$conector->prepare("SELECT * FROM categorias");
+    $resource->execute();
+    $registros = $resource->fetchAll(PDO::FETCH_ASSOC);
+    echo "<pre>";
+    print_r($registros);
+    echo "</pre>";
+    
+    $recursos=$conector->prepare("SELECT * FROM productos");
+    $recursos->execute();
+    $gola=$recursos->fetchAll(PDO::FETCH_ASSOC);
+    echo "<pre>";
+    print_r($recursos);
+    echo "</pre>";
+    
 
 class base_de_datos{
     private $gbd;
@@ -11,8 +32,11 @@ class base_de_datos{
     }
     // funciones 
 
-    function select($tabla, $filtros=null , $arr_prepare=null, $order=null, $limit=null) {
-        $sql =" SELECT * FROM ".$tabla;
+    function select($tabla, array $columns=null, $join =null, $filtros=null , $arr_prepare=null, $order=null, $limit=null) {
+        $columnSelection = "*";
+        $sql =" SELECT ". $columnSelection. "FROM ".$tabla;
+        
+        if($join!=null){$sql .="INNER JOIN" . $join ;}
         if($filtros != null ){
         $sql .= " WERE " .$filtros;}
         if($order != null ){ $sql .= " ORDER BY " .$order;}
@@ -21,8 +45,10 @@ class base_de_datos{
         $resource = $this->gbd->prepare($sql);
         $resource->execute($arr_prepare);
         
-        if($resource){ return $resource->fetchAll (PDO:FETCH_ASSOC);}
-        else{
+        if($resource){ 
+            return $resource->fetchAll(PDO::FETCH_ASSOC);
+            
+        }else{
             echo '<pre>';
             print_r($this->gbd->errorInfo());
             echo'</pre>';
@@ -54,7 +80,7 @@ class base_de_datos{
         $resource = $this->gbd->prepare($sql);
         $resource->execute($arr_prepare);
         
-        if($resource){ return $resource->fetchAll (PDO:FETCH_ASSOC);}
+        if($resource){ return $resource->fetchAll(PDO::FETCH_ASSOC);}
         else{
             echo '<pre>';
             print_r($this->gbd->errorInfo());
@@ -71,13 +97,27 @@ class base_de_datos{
         $resource->execute($arr_prepare);
         
         if($resource){
-            return $resource->fetchAll (PDO:FETCH_ASSOC);}
+            return $resource->fetchAll(PDO::FETCH_ASSOC);}
         else{
             echo '<pre>';
             print_r($this->gbd->errorInfo());
             echo'</pre>';
             throw new Exception('Error al actualizar ');
         }
+    }
+    
+    public function listar($tabla) {
+        $query = "SELECT * FROM " . $tabla;
+        $result = $this->conexion->query($query);
+        $data = array();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+        }
+
+        return $data;
     }
     
 }
@@ -106,17 +146,5 @@ class base_de_datos {
         }
     }
 
-    public function listar($tabla) {
-        $query = "SELECT * FROM " . $tabla;
-        $result = $this->conexion->query($query);
-        $data = array();
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $data[] = $row;
-            }
-        }
-
-        return $data;
-    }
-}
+    
+}*/
